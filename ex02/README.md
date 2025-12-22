@@ -2,7 +2,38 @@
 
 # CPP_Module02
 
-# Copy Constructor vs Copy Assignment Operator (C++)
+**Resources**
+
+[GEEKSFORGEEKS: Ad-hoc, Inclusion, Parametric & Coercion Polymorphisms](https://www.geeksforgeeks.org/dsa/ad-hoc-inclusion-parametric-coercion-polymorphisms/)
+
+## Ad-hoc Polymorphism (Overloading)
+Ad-hoc polymorphism allows functions with the same name act differently for each type. For example, given two ints and the + operator, it adds them together. Given two std::strings it concatenates them together. This is called overloading.
+s
+Here is a concrete example that implements function add for ints and strings,
+
+```cpp
+#include <iostream>
+#include <string>
+
+int add(int a, int b) {
+ return a + b;
+}
+
+std::string add(const char *a, const char *b) {
+ std::string result(a);
+ result += b;
+ return result;
+}
+
+int main() {
+ std::cout << add(5, 9) << std::endl;
+ std::cout << add("hello ", "world") << std::endl;
+}
+```
+
+
+
+## Copy Constructor vs Copy Assignment Operator (C++)
 
 This document explains the difference between the **copy constructor** and the **copy assignment operator** in C++, when each one is called, and how to implement them step by step.
 
@@ -218,3 +249,23 @@ It probably needs **all three**.
 ## 9. One-Sentence Summary
 
 The copy constructor creates a new object from another object, while the copy assignment operator copies data into an already existing object.
+
+
+## STATIC vs. NON-STATIC member functions
+
+A member function should be static if it does not need a particular object of the class to work.
+
+**Non-static (regular) member functions:**
+
+* Operate on a specific object (this)
+
+* Can access non-static members of that object
+
+**Static member functions:**
+
+* Belong to the class itself, not any object
+
+* Cannot use this
+
+* Can only access static members or what’s passed in as arguments
+

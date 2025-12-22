@@ -3,12 +3,11 @@
 
 const int Fixed::_fractional = 8;
 
-int power(int base, int exp) {
-  int result = 1;
-  for(int i = 0; i < exp; i++) {
-    result = result * base;
-  }
-  return result;
+// CONSTRUCTORS AND DESTRUCTOR
+
+Fixed::Fixed() {
+  std::cout << "Default constructor called" << std::endl;
+  _integer = 0;
 }
 
 Fixed::Fixed(int const intValue) {
@@ -22,91 +21,16 @@ Fixed::Fixed(float const floatValue) {
   std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed() {
-  std::cout << "Default constructor called" << std::endl;
-  _integer = 0;
-}
-
 Fixed::Fixed(const Fixed &original) {
   std::cout << "Copy constructor called" << std::endl;
   _integer = original.getRawBits();
 }
 
-//ClassName& operator=(const ClassName& other);
-Fixed& Fixed::operator=(const Fixed& original) {
-  std::cout << "Copy assigment operator called" << std::endl;
-  this->_integer = original.getRawBits();
-  return *this;
-}
-//-------------------------------------------------------------------
-bool operator>(const Fixed& one, const Fixed& two) {
-  //std::cout << " > operator called" << std::endl;
-  return one.getRawBits() > two.getRawBits();
-}
-
-bool operator<(const Fixed& one, const Fixed& two) {
-  //std::cout << " > operator called" << std::endl;
-  return one.getRawBits() < two.getRawBits();
-}
-
-bool operator==(const Fixed& one, const Fixed& two) {
-  //std::cout << " > operator called" << std::endl;
-  return one.getRawBits() == two.getRawBits();
-}
-
-bool operator<=(const Fixed& one, const Fixed& two) {
-  //std::cout << " > operator called" << std::endl;
-  return one.getRawBits() <= two.getRawBits();
-}
-
-bool operator>=(const Fixed& one, const Fixed& two) {
-  //std::cout << " > operator called" << std::endl;
-  return one.getRawBits() >= two.getRawBits();
-}
-
-bool operator!=(const Fixed& one, const Fixed& two) {
-  //std::cout << " > operator called" << std::endl;
-  return one.getRawBits() != two.getRawBits();
-}
-// --------------------------------------------------------------
-
-Fixed operator+(const Fixed& one, const Fixed& two) {
-  //std::cout << " > operator called" << std::endl;
-  Fixed result;
-  result.setRawBits(one.getRawBits() + two.getRawBits());
-  return result;
-}
-
-Fixed operator-(const Fixed& one, const Fixed& two) {
-  //std::cout << " > operator called" << std::endl;
-  Fixed result;
-  result.setRawBits(one.getRawBits() - two.getRawBits());
-  return result;
-}
-
-Fixed operator*(const Fixed& one, const Fixed& two) {
-  //std::cout << " > operator called" << std::endl;
-  Fixed result;
-  result.setRawBits((one.getRawBits() * two.getRawBits())/ power(2, Fixed::getFractional()));
-  return result;
-}
-
-Fixed operator/(const Fixed& one, const Fixed& two) {
-  //std::cout << " > operator called" << std::endl;
-  Fixed result;
-  result.setRawBits((one.getRawBits() / two.getRawBits()) * power(2, Fixed::getFractional()));
-  return result;
-}
-//------------------------------------------------------
-std::ostream& operator<<(std::ostream& output, const Fixed& fixedNumber) {
-  // Convert fixed-point number to float and insert into the stream
-  output << fixedNumber.toFloat();
-  return output;
-}
-
 Fixed::~Fixed() {
   std::cout << "Destructor called" << std::endl;
 }
+
+// GETTER FUNCTIONS
 
 int Fixed::getRawBits(void) const {
   //std::cout << "getRawBits member function called" << std::endl;
@@ -118,11 +42,14 @@ int Fixed::getFractional(void) {
   return _fractional;
 }
 
+// SETTER FUNCTION
 
 void Fixed::setRawBits(int const raw){
   //std::cout << "setRawBits member function called" << std::endl;
   _integer = raw; 
 }
+
+// CONVERSIONS FUNCTIONS
 
 float Fixed::toFloat() const {
   //float value = (float)_integer / power(2, _fractional);
@@ -137,20 +64,8 @@ int Fixed::toInt() const {
   return value;
 }
 
-
-/* Default constructor called
-Copy constructor called
-Copy assignment operator called // <-- This line may be missing depending on your implementation
-getRawBits member function called
-Default constructor called
-Copy assignment operator called
-getRawBits member function called
-getRawBits member function called
-0
-getRawBits member function called
-0
-getRawBits member function called
-0
-Destructor called
-Destructor called
-Destructor called */
+std::ostream& operator<<(std::ostream& output, const Fixed& fixedNumber) {
+  // Convert fixed-point number to float and insert into the stream
+  output << fixedNumber.toFloat();
+  return output;
+}

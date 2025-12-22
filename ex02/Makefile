@@ -5,6 +5,8 @@ NAME = fixedPoint
 
 SRC = main.cpp \
 	fixed.cpp \
+	fixedArith.cpp \
+	fixedComp.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
