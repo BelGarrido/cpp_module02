@@ -10,13 +10,12 @@ Fixed::Fixed() {
 }
 
 Fixed::Fixed(int const intValue) {
-  _integer = intValue * power(2, _fractional);
+  _integer = intValue << _fractional;
   std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(float const floatValue) {
-  int scalarValue = power(2, _fractional);
-  _integer = roundf(floatValue * scalarValue);
+  _integer = roundf(floatValue * (1 << _fractional));
   std::cout << "Float constructor called" << std::endl;
 }
 
@@ -52,13 +51,13 @@ void Fixed::setRawBits(int const raw){
 
 float Fixed::toFloat() const {
   //float value = (float)_integer / power(2, _fractional);
-  float value = _integer * (1.0f / power(2, _fractional));
+  float value = _integer * (1.0f / (1 << _fractional));
   //std::cout << "toFloat member function called" << std::endl;
   return value;
 }
 
 int Fixed::toInt() const {
-  int value = _integer / power(2, _fractional);
+  int value = _integer / (1.0f * (1 << _fractional));
   //std::cout << "toInt member function called" << std::endl;
   return value;
 }

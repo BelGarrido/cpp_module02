@@ -13,9 +13,7 @@ class Fixed {
     // DEFAULT CONSTRUCTOR
     Fixed();
     // COPY ASSIGMENT OPERATOR 
-    Fixed& operator=(const Fixed &original);
-    // PARAMETERIZED CONSTRUCTOR
-    Fixed(int const raw);
+    Fixed& operator=(const Fixed &original);;
     // COPY CONSTRUCTOR
     Fixed(const Fixed &original);
     

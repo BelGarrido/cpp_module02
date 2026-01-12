@@ -45,25 +45,29 @@ class Fixed {
     bool operator>=(const Fixed& other);
     bool operator!=(const Fixed& other);
 
+    // Declared as static because they operate on two Fixed objects
+    // and do not depend on a particular instance of the Fixed class.
+    // Being static allows us to call them directly on the class, like Fixed::min(a, b),
+    // without creating another Fixed object.
     static Fixed& min(Fixed &one, Fixed &two);
     static Fixed& max(Fixed &one, Fixed &two);
     static const Fixed& min(const Fixed &one, const Fixed &two);
     static const Fixed& max(const Fixed &one, const Fixed &two);
 
     // arithmetic
-    Fixed operator+(const Fixed& other);
-    Fixed operator-(const Fixed& other);
-    Fixed operator*(const Fixed& other);
-    Fixed operator/(const Fixed& other);
+    Fixed operator+(const Fixed& other) const;
+    Fixed operator-(const Fixed& other) const;
+    Fixed operator*(const Fixed& other) const;
+    Fixed operator/(const Fixed& other) const;
 
     //increment and decrement
     Fixed &operator++();
     Fixed operator++(int);
+    Fixed &operator--();
+    Fixed operator--(int);
 };
 
 // INSERTION OVERLOAD
 std::ostream& operator<<(std::ostream& output, const Fixed& fixedNumber);
-
-int power(int base, int exp);
 
 #endif

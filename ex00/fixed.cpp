@@ -8,12 +8,6 @@ Fixed::Fixed() {
   _interger = 0;
 }
 
-// PARAMETIZED CONSTRUCTOR
-Fixed::Fixed(int const raw) {
-  std::cout << "Paremeterized constructor called" << std::endl;
-  _interger = raw;
-}
-
 // COPY CONSTRUCTOR
 Fixed::Fixed(const Fixed &original) {
   std::cout << "Copy constructor called" << std::endl;

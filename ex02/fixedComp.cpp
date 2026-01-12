@@ -1,32 +1,26 @@
 #include "fixed.hpp"
 
 bool Fixed::operator>(const Fixed& other) const {
-  //std::cout << " > operator called" << std::endl;
   return this->getRawBits() > other.getRawBits();
 }
 
 bool Fixed::operator<(const Fixed& other) const {
-  //std::cout << " > operator called" << std::endl;
   return this->getRawBits() < other.getRawBits();
 }
 
 bool Fixed::operator==(const Fixed& other) {
-  //std::cout << " > operator called" << std::endl;
   return this->getRawBits() == other.getRawBits();
 }
 
 bool Fixed::operator<=(const Fixed& other) {
-  //std::cout << " > operator called" << std::endl;
   return this->getRawBits() <= other.getRawBits();
 }
 
 bool Fixed::operator>=(const Fixed& other) {
-  //std::cout << " > operator called" << std::endl;
   return this->getRawBits() >= other.getRawBits();
 }
 
 bool Fixed::operator!=(const Fixed& other) {
-  //std::cout << " > operator called" << std::endl;
   return this->getRawBits() != other.getRawBits();
 }
 
