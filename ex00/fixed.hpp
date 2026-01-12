@@ -18,10 +18,7 @@ class Fixed {
     Fixed(int const raw);
     // COPY CONSTRUCTOR
     Fixed(const Fixed &original);
-    // COPY ASSIGMENT OPERATOR
     
-
-
     // DESTRUCTOR
     ~Fixed();
 

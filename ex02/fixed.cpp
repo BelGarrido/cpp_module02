@@ -1,5 +1,4 @@
 #include "fixed.hpp"
-#include <cmath>
 
 const int Fixed::_fractional = 8;
 

@@ -1,28 +1,28 @@
 #include "fixed.hpp"
 
 Fixed Fixed::operator+(const Fixed& other) {
-  //std::cout << " > operator called" << std::endl;
+  //std::cout << " + operator called" << std::endl;
   Fixed result;
   result.setRawBits(this->getRawBits() + other.getRawBits());
   return result;
 }
 
 Fixed Fixed::operator-(const Fixed& other) {
-  //std::cout << " > operator called" << std::endl;
+  //std::cout << " - operator called" << std::endl;
   Fixed result;
   result.setRawBits(this->getRawBits() - other.getRawBits());
   return result;
 }
 
 Fixed Fixed::operator*(const Fixed& other) {
-  //std::cout << " > operator called" << std::endl;
+  //std::cout << " * operator called" << std::endl;
   Fixed result;
   result.setRawBits((this->getRawBits() * other.getRawBits())/ power(2, Fixed::getFractional()));
   return result;
 }
 
 Fixed Fixed::operator/(const Fixed& other) {
-  //std::cout << " > operator called" << std::endl;
+  //std::cout << " / operator called" << std::endl;
   Fixed result;
   result.setRawBits((this->getRawBits() / other.getRawBits()) * power(2, Fixed::getFractional()));
   return result;

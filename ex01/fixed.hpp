@@ -2,6 +2,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed {
   
@@ -17,7 +18,7 @@ class Fixed {
     Fixed(int const intValue);
     Fixed(float const floatValue);
 
-    // COPY ASSIGMENT OPERATOR 
+    // COPY ASSIGMENT OPERATOR
     Fixed& operator=(const Fixed &original);
 
     // COPY CONSTRUCTOR

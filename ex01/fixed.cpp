@@ -1,5 +1,4 @@
 #include "fixed.hpp"
-#include <cmath>
 
 const int Fixed::_fractional = 8.0;
 
@@ -9,6 +8,11 @@ int power(int base, int exp) {
     result = result * base;
   }
   return result;
+}
+
+Fixed::Fixed() {
+  std::cout << "Default constructor called" << std::endl;
+  _integer = 0;
 }
 
 Fixed::Fixed(int const intValue) {
@@ -22,17 +26,15 @@ Fixed::Fixed(float const floatValue) {
   std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed() {
-  std::cout << "Default constructor called" << std::endl;
-  _integer = 0;
-}
-
 Fixed::Fixed(const Fixed &original) {
   std::cout << "Copy constructor called" << std::endl;
   _integer = original.getRawBits();
 }
 
-//ClassName& operator=(const ClassName& other);
+Fixed::~Fixed() {
+  std::cout << "Destructor called" << std::endl;
+}
+
 Fixed& Fixed::operator=(const Fixed& original) {
   std::cout << "Copy assigment operator called" << std::endl;
   this->_integer = original.getRawBits();
@@ -43,10 +45,6 @@ std::ostream& operator<<(std::ostream& output, const Fixed& fixedNumber) {
   // Convert fixed-point number to float and insert into the stream
   output << fixedNumber.toFloat();
   return output;
-}
-
-Fixed::~Fixed() {
-  std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const {
@@ -71,21 +69,3 @@ int Fixed::toInt() const {
   //std::cout << "toInt member function called" << std::endl;
   return value;
 }
-
-
-/* Default constructor called
-Copy constructor called
-Copy assignment operator called // <-- This line may be missing depending on your implementation
-getRawBits member function called
-Default constructor called
-Copy assignment operator called
-getRawBits member function called
-getRawBits member function called
-0
-getRawBits member function called
-0
-getRawBits member function called
-0
-Destructor called
-Destructor called
-Destructor called */
