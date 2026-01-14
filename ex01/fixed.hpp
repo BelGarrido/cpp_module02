@@ -41,6 +41,4 @@ class Fixed {
 // INSERTION OVERLOAD
 std::ostream& operator<<(std::ostream& output, const Fixed& fixedNumber);
 
-int power(int base, int exp);
-
 #endif
