@@ -13,10 +13,9 @@ class Fixed {
     // DEFAULT CONSTRUCTOR
     Fixed();
     // COPY ASSIGMENT OPERATOR 
-    Fixed& operator=(const Fixed &original);;
+    Fixed& operator=(const Fixed &original);
     // COPY CONSTRUCTOR
     Fixed(const Fixed &original);
-    
     // DESTRUCTOR
     ~Fixed();
 

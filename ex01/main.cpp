@@ -29,7 +29,7 @@ int main() {
   return 0;
 }
 
-//____________________ MIN_FP_NUMBER_POSIBLE__
+//___________________________ MIN_FP_POSIBLE__
 
 /*   float n = 1.0f/256;
   std::cout << n << std::endl;
@@ -38,7 +38,7 @@ int main() {
   std::cout << "m is " << m << std::endl 
   std::cout << std::fixed << std::setprecision(8); */
 
-//____________________ SUBJECT MAIN __
+//____________________________ SUBJECT MAIN __
 
 /* int main( void ) {
   Fixed a;
